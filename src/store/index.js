@@ -1,16 +1,8 @@
-import {observable,action} from 'mobx'
+import React from 'react';
+import useGlobalHook from 'use-global-hook';
+import { initialState } from './store'
+import { actions } from './actions'
 
-class Store {
-    @observable state = {
-        number:1,
-        age:11
-    }
-    @action add = () => {
-        this.state.number++
-    }
-    @action des = () => {
-        this.state.number--
-    }
-}
+const useGlobal = useGlobalHook(React, initialState, actions);
 
-export default Store
+export default useGlobal
